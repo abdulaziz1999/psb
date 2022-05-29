@@ -12,9 +12,9 @@ $dataSiswa = $obj->getSiswa();
           <div class="card mb-4">
             <div class="card-header pb-0">
               <h6>Data Pendaftar</h6>
-              <button type="button" class="btn btn-sm bg-gradient-primary btn-block mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalMessage">
+              <!-- <button type="button" class="btn btn-sm bg-gradient-primary btn-block mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalMessage">
                         <i class='bx bx-plus'></i> Add
-                    </button>
+                    </button> -->
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
