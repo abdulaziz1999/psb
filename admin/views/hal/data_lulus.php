@@ -1,5 +1,6 @@
 <?php
 require_once 'models/Siswa.php';
+require_once 'host.php';
 
 $obj = new Siswa();
 
@@ -61,3 +62,5 @@ $dataSiswa = $obj->getSiswa();
         </div>
       </div>
     </div>
+
+    

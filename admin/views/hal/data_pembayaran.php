@@ -1,5 +1,6 @@
 <?php
 require_once 'models/Pembayaran.php';
+require_once 'host.php';
 
 $obj = new Pembayaran();
 
@@ -163,9 +164,10 @@ $dataPembayaran = $obj->getPembayaran();
 </div>
 
 <script>
+var url = '<?= $base_url?>';
 function edit(id) {
     $.ajax({
-        url: 'http://localhost/psb/admin/controllers/pembayaranController.php',
+        url: url+'/psb/admin/controllers/pembayaranController.php',
         type: 'POST',
         data: {
             id: id,
@@ -185,7 +187,7 @@ function edit(id) {
 
 function detail(id) {
     $.ajax({
-        url: 'http://localhost/psb/admin/controllers/pembayaranController.php',
+        url: url+'/psb/admin/controllers/pembayaranController.php',
         type: 'POST',
         data: {
             id: id,
@@ -205,7 +207,7 @@ function detail(id) {
 
 function delPem(id){
   $.ajax({
-        url: 'http://localhost/psb/admin/controllers/pembayaranController.php',
+        url: url+'/psb/admin/controllers/pembayaranController.php',
         type: 'POST',
         data: {
             id: id,

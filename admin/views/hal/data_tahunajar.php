@@ -1,5 +1,6 @@
 <?php
 require_once 'models/Tahunajar.php';
+require_once 'host.php';
 
 $obj = new Tahunajar();
 
@@ -127,9 +128,10 @@ $dataTahunajar = $obj->getTahunajar();
 </div>
 
 <script>
+var url = '<?= $base_url?>';
 function edit(id) {
     $.ajax({
-        url: 'http://localhost/psb/admin/controllers/tahunajarController.php',
+        url: url+'/psb/admin/controllers/tahunajarController.php',
         type: 'POST',
         data: {
             id: id,
@@ -149,7 +151,7 @@ function edit(id) {
 
 function detail(id) {
     $.ajax({
-        url: 'http://localhost/psb/admin/controllers/tahunajarController.php',
+        url: url+'/psb/admin/controllers/tahunajarController.php',
         type: 'POST',
         data: {
             id: id,
@@ -169,7 +171,7 @@ function detail(id) {
 
 function delTa(id){
   $.ajax({
-        url: 'http://localhost/psb/admin/controllers/tahunajarController.php',
+        url: url+'/psb/admin/controllers/tahunajarController.php',
         type: 'POST',
         data: {
             id: id,

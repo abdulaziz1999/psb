@@ -1,6 +1,7 @@
 <?php
 require_once 'models/Jadwal.php';
 require_once 'models/Tahunajar.php';
+require_once 'host.php';
 
 $obj = new Jadwal();
 $objta = new Tahunajar();
@@ -178,9 +179,10 @@ $dataTahunajar = $objta->getTahunajar();
 </div>
 
 <script>
+var url = '<?= $base_url?>';
 function editJad(id) {
     $.ajax({
-        url: 'http://localhost/psb/admin/controllers/jadwalController.php',
+        url: url+'/psb/admin/controllers/jadwalController.php',
         type: 'POST',
         data: {
             id: id,
@@ -200,7 +202,7 @@ function editJad(id) {
 
 function detailJad(id) {
     $.ajax({
-        url: 'http://localhost/psb/admin/controllers/jadwalController.php',
+        url: url+'/psb/admin/controllers/jadwalController.php',
         type: 'POST',
         data: {
             id: id,
@@ -220,7 +222,7 @@ function detailJad(id) {
 
 function deleleJad(id){
   $.ajax({
-        url: 'http://localhost/psb/admin/controllers/jadwalController.php',
+        url: url+'/psb/admin/controllers/jadwalController.php',
         type: 'POST',
         data: {
             id: id,

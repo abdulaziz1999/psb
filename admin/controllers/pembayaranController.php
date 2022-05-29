@@ -1,6 +1,7 @@
 <?php
 require_once '../config/database.php';
 require_once '../models/Pembayaran.php';
+require_once '../views/hal/host.php';
 //1.tangkap request element form
 @$tahun_ajar = $_POST['tahun_ajar'];
 @$status = $_POST['status'];
@@ -15,12 +16,12 @@ $obj = new Pembayaran();
 switch ($tombol) {
     case 'simpan':
         $obj->simpan($data);
-        header('Location:http://localhost/psb/admin/dash.php?hal=data_pembayaran');
+        header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_pembayaran');
     break;
     case 'ubah':
         $data[] = $_POST['idx'];
         $obj->ubah($data);
-        header('Location:http://localhost/psb/admin/dash.php?hal=data_pembayaran');
+        header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_pembayaran');
     break;
     case 'edit':
         $detailTa = $obj->getByPembayaran($_POST['id']);
@@ -38,10 +39,10 @@ switch ($tombol) {
     case 'hapus':
         $id[] = $_POST['idx'];
         $obj->hapus($id);
-        header('Location:http://localhost/psb/admin/dash.php?hal=data_pembayaran');
+        header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_pembayaran');
     break;
     default://tombol batal
-        header('Location:http://localhost/psb/admin/dash.php?hal=data_pembayaran');
+        header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_pembayaran');
     break;
 }
 

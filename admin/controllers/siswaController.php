@@ -1,6 +1,7 @@
 <?php
 require_once '../config/database.php';
 require_once '../models/Siswa.php';
+require_once '../views/hal/host.php';
 //1.tangkap request element form
 @$nisn = $_POST['nisn'];
 @$nama = $_POST['nama'];
@@ -27,12 +28,12 @@ $obj = new Siswa();
 switch ($tombol) {
     case 'simpan':
         $obj->simpan($data);
-        header('Location:http://localhost/psb/admin/dash.php?hal=data_siswa');
+        header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_siswa');
     break;
     case 'ubah':
         $data[] = $_POST['idx'];//tangkap hidden field u/ ? ke-8
         $obj->ubah($data);
-        header('Location:http://localhost/psb/admin/dash.php?hal=data_siswa');
+        header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_siswa');
     break;
     case 'edit':
         $detailTa = $obj->getBySiswa($_POST['id']);
@@ -50,9 +51,9 @@ switch ($tombol) {
     case 'hapus':
         $id[] = $_POST['idx'];//tangkap hidden field u/ ? ke-1
         $obj->hapus($id);
-        header('Location:http://localhost/psb/admin/dash.php?hal=data_siswa');
+        header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_siswa');
     break;
     default://tombol batal
-        header('Location:http://localhost/psb/admin/dash.php?hal=data_siswa');
+        header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_siswa');
         break;
 }

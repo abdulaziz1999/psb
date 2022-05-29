@@ -1,5 +1,6 @@
 <?php
 require_once 'models/Siswa.php';
+require_once 'host.php';
 
 $obj = new Siswa();
 
@@ -156,9 +157,10 @@ $dataSiswa = $obj->getSiswa();
 
 
 <script>
+var url = '<?= $base_url?>';
 function editJad(id) {
     $.ajax({
-        url: 'http://localhost/psb/admin/controllers/siswaController.php',
+        url: url+'/psb/admin/controllers/siswaController.php',
         type: 'POST',
         data: {
             id: id,
@@ -178,7 +180,7 @@ function editJad(id) {
 
 function detailJad(id) {
     $.ajax({
-        url: 'http://localhost/psb/admin/controllers/siswaController.php',
+        url: url+'/psb/admin/controllers/siswaController.php',
         type: 'POST',
         data: {
             id: id,
@@ -198,7 +200,7 @@ function detailJad(id) {
 
 function deleleJad(id){
   $.ajax({
-        url: 'http://localhost/psb/admin/controllers/siswaController.php',
+        url: url+'/psb/admin/controllers/siswaController.php',
         type: 'POST',
         data: {
             id: id,

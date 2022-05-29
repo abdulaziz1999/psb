@@ -1,5 +1,6 @@
 <?php
 require_once 'models/Siswa.php';
+require_once 'host.php';
 
 $obj = new Siswa();
 
@@ -61,3 +62,67 @@ $dataSiswa = $obj->getSiswa();
         </div>
       </div>
     </div>
+
+    <script>
+var url = '<?= $base_url?>';
+function edit(id) {
+    $.ajax({
+        url: url+'/psb/admin/controllers/ortuController.php',
+        type: 'POST',
+        data: {
+            id: id,
+            proses: 'edit'
+        },
+        cache: false,
+        beforeSend: function() {
+            $('#isi_modal').html(
+                '<div class="text-center"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>'
+                );
+        },
+        success: function(html) {
+            $('#isi_modal').html(html);
+        }
+    })
+}
+
+function detail(id) {
+    $.ajax({
+        url: url+'/psb/admin/controllers/ortuController.php',
+        type: 'POST',
+        data: {
+            id: id,
+            proses: 'detail'
+        },
+        cache: false,
+        beforeSend: function() {
+            $('#isi_modal').html(
+                '<div class="text-center"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>'
+                );
+        },
+        success: function(html) {
+            $('#isi_modal').html(html);
+        }
+    })
+}
+
+function delPem(id){
+  $.ajax({
+        url: url+'/psb/admin/controllers/ortuController.php',
+        type: 'POST',
+        data: {
+            id: id,
+            proses: 'delete'
+        },
+        cache: false,
+        beforeSend: function() {
+            $('#isi_modal').html(
+                '<div class="text-center"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>'
+                );
+        },
+        success: function(html) {
+            $('#isi_modal').html(html);
+        }
+    })
+}
+   
+</script>

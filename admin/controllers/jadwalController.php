@@ -2,6 +2,7 @@
 require_once '../config/database.php';
 require_once '../models/Jadwal.php';
 require_once '../models/Tahunajar.php';
+require_once '../views/hal/host.php';
 //1.tangkap request element form
 @$tgl = $_POST['tgl'];
 @$kategori = $_POST['kategori'];
@@ -24,12 +25,12 @@ switch ($tombol) {
     case 'simpan':
         print_r($data);
         $obj->simpan($data);
-        header('Location:http://localhost/psb/admin/dash.php?hal=data_jadwal');
+        header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_jadwal');
     break;
     case 'ubah':
         $data[] = $_POST['idx'];
         $obj->ubah($data);
-        header('Location:http://localhost/psb/admin/dash.php?hal=data_jadwal');
+        header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_jadwal');
     break;
     case 'edit':
         $dataTahunajar = $objta->getTahunajar();
@@ -49,9 +50,9 @@ switch ($tombol) {
     case 'hapus':
         $id[] = $_POST['idx'];//tangkap hidden field u/ ? ke-1
         $obj->hapus($id);
-        header('Location:http://localhost/psb/admin/dash.php?hal=data_jadwal');
+        header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_jadwal');
     break;
     default://tombol batal
-        header('Location:http://localhost/psb/admin/dash.php?hal=data_jadwal');
+        header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_jadwal');
         break;
 }
