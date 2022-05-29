@@ -1,6 +1,3 @@
-<?php
-$base_url ='http://localhost/';
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -61,7 +58,7 @@ $base_url ='http://localhost/';
             </li>
           </ul>
           <a
-           href="<?= $base_url?>/psb/admin/"
+           href="http://localhost/psb/admin/"
             id="navAction"
             class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full mt-4 lg:mt-0 py-4 px-8 shadow opacity-75 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out"
           >
@@ -83,7 +80,7 @@ $base_url ='http://localhost/';
           <p class="leading-normal text-2xl mb-8">
             Segera daftar sekarang juga!
           </p>
-          <a href="<?= $base_url?>/psb/admin/daftar.php" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+          <a href="http://localhost/psb/admin/daftar.php" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
             Daftar
       </a>
         </div>
