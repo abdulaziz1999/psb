@@ -17,13 +17,13 @@ if(!empty($rs)){
     //simpan session
     $_SESSION['MEMBER'] = $rs;
     //landing page
-    header('Location:http://localhost/psb/admin/dash.php');    
+    header('Location:'.$base_url.'psb/admin/dash.php');    
 }
 else{
     //landing page
     echo '<script>alert("Username atau Password Salah");
     window.setTimeout(function() {
-        window.location.href = "http://localhost/psb/admin";
+        window.location.href = "'.$base_url.'psb/admin";
     }, 10);
     </script>';
 }

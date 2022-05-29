@@ -2,7 +2,7 @@
 session_start();
 @$user = $_SESSION['MEMBER'];
 @$role = $user['role'];
-$base_url = "http://localhost/psb/admin/dash.php?";
+$base_url = "http://localhost/";
 
 ?>
   <?php require_once 'config/database.php'?>
