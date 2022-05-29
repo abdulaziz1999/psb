@@ -2,17 +2,31 @@
     if(isset($_REQUEST['hal'])){
       if($_REQUEST['hal'] == 'dashboard'){
         $menu = 'Dashboard';
-      }elseif($_REQUEST['hal'] == 'pendidikan'){
-        $menu = 'Pendidikan';
       }elseif($_REQUEST['hal'] == 'profile'){
         $menu = 'Profile';
-      }elseif($_REQUEST['hal'] == 'gallery'){
-        $menu = 'Gallery';
-      }elseif($_REQUEST['hal'] == 'contact'){
-        $menu = 'Contact';
+      }elseif($_REQUEST['hal'] == 'data_siswa'){
+        $menu = 'Data Siswa';
+      }elseif($_REQUEST['hal'] == 'data_ortu'){
+        $menu = 'Data Ortu';
+      }elseif($_REQUEST['hal'] == 'data_lulus'){
+        $menu = 'Data Lulus';
+      }elseif($_REQUEST['hal'] == 'data_jadwal'){
+        $menu = 'Data Jadwal';
+      }elseif($_REQUEST['hal'] == 'data_pembayaran'){
+        $menu = 'Data Pembayaran';
+      }elseif($_REQUEST['hal'] == 'data_tahunajar'){
+        $menu = 'Data Tahun Ajar';
       }elseif($_REQUEST['hal'] == ''){
           $menu = 'Dashboard';
-      }elseif($_REQUEST['hal'] != 'dashboard' || $_REQUEST['hal'] != 'profile' || $_REQUEST['hal'] != 'pendidikan' || $_REQUEST['hal'] != 'gallery' || $_REQUEST['hal'] != 'contact'){
+      }elseif($_REQUEST['hal'] != 'dashboard' || 
+              $_REQUEST['hal'] != 'profile' || 
+              $_REQUEST['hal'] != 'data_siswa' || 
+              $_REQUEST['hal'] != 'data_ortu' || 
+              $_REQUEST['hal'] != 'data_lulus' ||
+              $_REQUEST['hal'] != 'data_jadwal' ||
+              $_REQUEST['hal'] != 'data_pembayaran' ||
+              $_REQUEST['hal'] != 'data_tahunajar' ||
+              $_REQUEST['hal'] != 'data_user' ){
         $menu = '404';
       }
     }else{

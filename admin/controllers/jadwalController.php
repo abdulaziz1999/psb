@@ -1,25 +1,16 @@
 <?php
 require_once '../config/database.php';
-require_once '../models/Pegawai.php';
+require_once '../models/Siswa.php';
 //1.tangkap request element form
-$nip = $_POST['nip'];
-$nama = $_POST['nama'];
-$email = $_POST['email'];
-$agama = $_POST['agama'];
-$iddivisi = $_POST['iddivisi'];
-$foto = $_POST['foto'];
-$tombol = $_POST['proses'];
+$tahun_ajar = $_POST['tahun_ajar'];
+$status = $_POST['status'];
 //2.menyimpan data2 di atas sebuah array
 $data = [
-    $nip, //? 1
-    $nama, //? 2
-    $email, //? 3
-    $agama, //? 4
-    $iddivisi, //? 5
-    $foto //? 6
+    $tahun_ajar, //? 1
+    $status, //? 2
 ];
 //3.proses
-$obj = new Pegawai();
+$obj = new Siswa();
 switch ($tombol) {
     case 'simpan':
         $obj->simpan($data);
