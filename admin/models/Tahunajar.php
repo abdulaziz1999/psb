@@ -18,6 +18,15 @@ class Tahunajar{
         return $rs;
     }
 
+    public function getByTahunajar($id){
+        $sql = "SELECT * FROM tb_tahun_ajar WHERE id_tahun_ajar = ?";
+        //prepare statement
+        $ps = $this->koneksi->prepare($sql);
+        $ps->execute([$id]);
+        $rs = $ps->fetch();
+        return $rs;
+    }
+
     public function simpan($data){
         $sql = "INSERT INTO tb_tahun_ajar (tahun_ajar,status)
                 VALUES (?,?)";
