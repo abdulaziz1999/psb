@@ -1,95 +1,74 @@
 <?php
-require_once 'models/Pembayaran.php';
+require_once 'models/Jadwal.php';
+require_once 'models/Tahunajar.php';
 
-$obj = new Pembayaran();
+$obj = new Jadwal();
+$objta = new Tahunajar();
 
-$dataPembayaran = $obj->getPembayaran();
+$dataJadwal = $obj->getJadwal();
+$dataTahunajar = $objta->getTahunajar();
+// $detail = $obj->getByTahunajar($id);
 ?>
 <div class="container-fluid py-4">
     <div class="row">
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0">
-                    <h6>Data Pendaftaran</h6>
-                    <!-- <button type="button" class="btn btn-sm bg-gradient-primary btn-block mb-3" data-bs-toggle="modal"
-                        data-bs-target="#exampleModalMessage">
+                    <h5 class="text-center mb-2"><b>Data Jadwal</b></h5>
+                    <button type="button" class="btn btn-sm bg-gradient-primary btn-block mb-3" data-bs-toggle="modal" data-bs-target="#exampleModalMessage">
                         <i class='bx bx-plus'></i> Add
-                    </button> -->
+                    </button>
                 </div>
                 <div class="card-body px-0 pt-0 pb-2">
                     <div class="table-responsive p-0">
                         <table class="table align-items-center mb-0">
                             <thead>
                                 <tr>
-                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">N0
+                                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">No
                                     </th>
                                     <th
-                                        class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
-                                        Nisn</th>
+                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">
+                                        Tanggal</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Nama</th>
+                                        Jenjang</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Jenis Kelamin</th>
+                                        Kuota</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Tagihan</th>
-                                    <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Status Bayar</th>
-                                    <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Metode Pembayaran</th>
-                                    <th
-                                        class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
-                                        Konfirmasi</th>
+                                        Tahunajar</th>
                                     <th
                                         class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">
                                         Act</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php $no="1"; foreach($dataPembayaran as $row):?>
+                                <?php $no="1"; foreach($dataJadwal as $row):?>
                                 <tr>
                                     <td>
-                                        <div class="d-flex px-2 py-1">
+                                        <div class="d-flex px-2 py-1 text-center">
                                             <div class="d-flex flex-column justify-content-center">
                                                 <?= $no++?>
                                             </div>
                                         </div>
                                     </td>
-                                    <td>
-                                        <?= $row['nisn']?>
-                                    </td>
                                     <td class="align-middle text-center text-sm">
-                                        <?= $row['nama']?>
+                                        <?= $row['tgl']?>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <?= $row['jk']?>
-                                    </td>
-                                    <td class="align-middle text-center text-sm">
-                                        <?= $row['tagihan']?>
+                                        <?= $row['kategori']?>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <?= $row['status_bayar']?>
+                                        <?= $row['kuota']?>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <?= $row['metode_pembayaran']?>
+                                        <?= $row['tahun_ajar']?>
                                     </td>
                                     <td class="align-middle text-center">
-                                        <?= $row['konfirmasi']?>
-                                    </td>
-                                    <td class="align-middle text-center">
-                                        <button class="btn btn-sm bg-gradient-info" id="<?= $row['id_pembayaran']?>"
-                                            onClick="detail(this.id)" data-bs-toggle="modal"
-                                            data-bs-target="#editModal"><i class='bx bx-show'></i> Detail</button>
-                                        <button class="btn btn-sm bg-gradient-success" id="<?= $row['id_pembayaran']?>"
-                                            onClick="edit(this.id)" data-bs-toggle="modal"
-                                            data-bs-target="#editModal"><i class='bx bx-edit'></i> Edit</button>
-                                        <button class="btn btn-sm bg-gradient-danger" id="<?= $row['id_pembayaran']?>"
-                                            onClick="delPem(this.id)" data-bs-toggle="modal"
-                                            data-bs-target="#editModal"><i class='bx bx-trash'></i> Delete</button>
+                                        <button class="btn btn-sm bg-gradient-info" id="<?= $row['id_jadwal']?>" onClick="detailJad(this.id)" data-bs-toggle="modal" data-bs-target="#editJadModal"><i class='bx bx-show'></i> Detail</button>
+                                        <button class="btn btn-sm bg-gradient-success" id="<?= $row['id_jadwal']?>" onClick="editJad(this.id)" data-bs-toggle="modal" data-bs-target="#editJadModal"><i class='bx bx-edit'></i> Edit</button>
+                                        <button class="btn btn-sm bg-gradient-danger" id="<?= $row['id_jadwal']?>" onClick="deleleJad(this.id)" data-bs-toggle="modal" data-bs-target="#editJadModal"><i class='bx bx-trash'></i> Delete</button>
                                     </td>
                                 </tr>
                                 <?php endforeach;?>
@@ -109,39 +88,75 @@ $dataPembayaran = $obj->getPembayaran();
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title font-weight-bolder text-primary text-gradient" id="exampleModalLabel">Add
-                    Pembayaran</h5>
+                    Jadwal</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
             <div class="modal-body">
-                <form method="POST" action="controllers/pembayaranController.php">
+                <form method="POST" action="controllers/jadwalController.php" >
                     <div class="form-group">
-                        <label for="recipient-name" class="col-form-label">Nama Siswa:</label>
-                        <input type="text" class="form-control" id="recipient-name">
+                        <label for="recipient-name" class="col-form-label">Tanggal :</label>
+                        <input type="date" class="form-control" name="tgl" id="recipient-name" required>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <label for="recipient-name" class="col-form-label">Status:</label>
+                            <label for="recipient-name" class="col-form-label">Jenjang :</label>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div class="form-check mb-1">
-                                    <input class="form-check-input" type="radio" name="status" value="active"
+                                    <input class="form-check-input" type="radio" name="kategori" value="SMP"
                                         id="customRadio1">
-                                    <label class="custom-control-label" for="customRadio1">Active</label>
+                                    <label class="custom-control-label" for="customRadio1">SMP</label>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <div class="form-check mb-1">
-                                    <input class="form-check-input" type="radio" name="status" value="inactive"
+                                    <input class="form-check-input" type="radio" name="kategori" value="SMA"
                                         id="customRadio2">
-                                    <label class="custom-control-label" for="customRadio2">Non Active</label>
+                                    <label class="custom-control-label" for="customRadio2">SMA</label>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="recipient-name" class="col-form-label">Info :</label>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="info" value="true"
+                                        id="customRadio1">
+                                    <label class="custom-control-label" for="customRadio1">Show</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <div class="form-check mb-1">
+                                    <input class="form-check-input" type="radio" name="info" value="false"
+                                        id="customRadio2">
+                                    <label class="custom-control-label" for="customRadio2">Hidden</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Kuota :</label>
+                        <input type="text" class="form-control" name="kuota" id="recipient-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Tahunajar :</label>
+                        <select name="idtahunajar" class="form-control" id="recipient-name" required>
+                            <option disabled selected>Pilih</option>
+                            <?php foreach($dataTahunajar as $row):?>
+                                <option value="<?= $row['id_tahun_ajar']?>"><?= $row['tahun_ajar']?><?= $row['status'] == 'active' ? ' - active' : ''?></option>
+                            <?php endforeach;?>
+                        </select>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn bg-gradient-danger" data-bs-dismiss="modal">Close</button>
@@ -154,7 +169,7 @@ $dataPembayaran = $obj->getPembayaran();
 </div>
 
 
-<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalTitle"
+<div class="modal fade" id="editJadModal" tabindex="-1" role="dialog" aria-labelledby="editJadModalTitle"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content" id="isi_modal">
@@ -163,9 +178,9 @@ $dataPembayaran = $obj->getPembayaran();
 </div>
 
 <script>
-function edit(id) {
+function editJad(id) {
     $.ajax({
-        url: 'http://localhost/psb/admin/controllers/pembayaranController.php',
+        url: 'http://localhost/psb/admin/controllers/jadwalController.php',
         type: 'POST',
         data: {
             id: id,
@@ -183,9 +198,9 @@ function edit(id) {
     })
 }
 
-function detail(id) {
+function detailJad(id) {
     $.ajax({
-        url: 'http://localhost/psb/admin/controllers/pembayaranController.php',
+        url: 'http://localhost/psb/admin/controllers/jadwalController.php',
         type: 'POST',
         data: {
             id: id,
@@ -203,9 +218,9 @@ function detail(id) {
     })
 }
 
-function delPem(id){
+function deleleJad(id){
   $.ajax({
-        url: 'http://localhost/psb/admin/controllers/pembayaranController.php',
+        url: 'http://localhost/psb/admin/controllers/jadwalController.php',
         type: 'POST',
         data: {
             id: id,

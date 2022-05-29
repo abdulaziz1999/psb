@@ -2,6 +2,8 @@
 session_start();
 @$user = $_SESSION['MEMBER'];
 @$role = $user['role'];
+$base_url = "http://localhost/psb/admin/dash.php?";
+
 ?>
   <?php require_once 'config/database.php'?>
   <?php include_once 'views/layout/script_atas.php'?>

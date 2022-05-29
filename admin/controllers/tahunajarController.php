@@ -15,6 +15,7 @@ $obj = new Tahunajar();
 switch ($tombol) {
     case 'simpan':
         $obj->simpan($data);
+        header('Location:http://localhost/psb/admin/dash.php?hal=data_tahunajar');
     break;
     case 'ubah':
         $data[] = $_POST['idx'];//tangkap hidden field u/ ? ke-8
@@ -30,7 +31,7 @@ switch ($tombol) {
         include_once '../views/hal/form_detailTa.php';
     break;
     case 'delete':
-        $detailTa = $obj->getByTahunajar($_POST['id']);
+        $id_del = $_POST['id'];
         $urldel = 'controllers/tahunajarController.php';
         include_once '../views/hal/modal_delete.php';
     break;

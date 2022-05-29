@@ -9,6 +9,7 @@
              $hal == 'data_lulus' || 
              $hal == 'data_pembayaran' || 
              $hal == 'data_tahunajar' || 
+             $hal == 'data_jadwal' ||
              $hal == 'data_user' || 
              $hal == 'logout') {
         include_once $hal . '.php';

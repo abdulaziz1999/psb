@@ -2,40 +2,57 @@
 require_once '../config/database.php';
 require_once '../models/Siswa.php';
 //1.tangkap request element form
-$nip = $_POST['nip'];
-$nama = $_POST['nama'];
-$email = $_POST['email'];
-$agama = $_POST['agama'];
-$iddivisi = $_POST['iddivisi'];
-$foto = $_POST['foto'];
+@$nisn = $_POST['nisn'];
+@$nama = $_POST['nama'];
+@$jk = $_POST['jk'];
+@$no_hp = $_POST['no_hp'];
+@$tmp_lahir = $_POST['tmp_lahir'];
+@$tgl_lahir = $_POST['tgl_lahir'];
+@$foto = $_POST['foto'];
+@$alamat = $_POST['alamat'];
 $tombol = $_POST['proses'];
 //2.menyimpan data2 di atas sebuah array
 $data = [
-    $nip, //? 1
-    $nama, //? 2
-    $email, //? 3
-    $agama, //? 4
-    $iddivisi, //? 5
-    $foto //? 6
+    $nisn,
+    $nama,
+    $jk,
+    $no_hp,
+    $tmp_lahir,
+    $tgl_lahir,
+    $foto,
+    $alamat
 ];
 //3.proses
-$obj = new Pegawai();
+$obj = new Siswa();
 switch ($tombol) {
     case 'simpan':
         $obj->simpan($data);
+        header('Location:http://localhost/psb/admin/dash.php?hal=data_siswa');
     break;
     case 'ubah':
         $data[] = $_POST['idx'];//tangkap hidden field u/ ? ke-8
         $obj->ubah($data);
+        header('Location:http://localhost/psb/admin/dash.php?hal=data_siswa');
+    break;
+    case 'edit':
+        $detailTa = $obj->getBySiswa($_POST['id']);
+        include_once '../views/hal/form_edit_siswa.php';
+    break;
+    case 'detail':
+        $detailTa = $obj->getBySiswa($_POST['id']);
+        include_once '../views/hal/form_detail_siswa.php';
+    break;
+    case 'delete':
+        $id_del = $_POST['id'];
+        $urldel = 'controllers/siswaController.php';
+        include_once '../views/hal/modal_delete.php';
     break;
     case 'hapus':
         $id[] = $_POST['idx'];//tangkap hidden field u/ ? ke-1
         $obj->hapus($id);
+        header('Location:http://localhost/psb/admin/dash.php?hal=data_siswa');
     break;
     default://tombol batal
-        header('Location:http://localhost/appku/index.php?hal=dataPegawai');
+        header('Location:http://localhost/psb/admin/dash.php?hal=data_siswa');
         break;
 }
-
-//4.landing page
-header('Location:http://localhost/appku/index.php?hal=dataPegawai');

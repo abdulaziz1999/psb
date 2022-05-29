@@ -14,6 +14,6 @@
     <div class="modal-footer">
         <button type="button" class="btn bg-gradient-secondary ml-auto" data-bs-dismiss="modal">Close</button>
         <button type="submit" name="proses" value="hapus" class="btn bg-gradient-danger">Ok, Delete</button>
-        <input type="hidden" name="idx" value="<?= $detailTa['id_tahun_ajar']?>">
+        <input type="hidden" name="idx" value="<?= $id_del?>">
     </div>
 </form>

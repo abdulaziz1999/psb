@@ -9,6 +9,24 @@ class Jadwal{
         $this->koneksi = $dbh;
     }
 
+    public function getJadwal(){
+        $sql = "SELECT * FROM tb_jadwal_tes j JOIN tb_tahun_ajar t ON j.idtahunajar = t.id_tahun_ajar";
+        //prepare statement
+        $ps = $this->koneksi->prepare($sql);
+        $ps->execute();
+        $rs = $ps->fetchAll();
+        return $rs;
+    }
+
+    public function getByJadwal($id){
+        $sql = "SELECT * FROM tb_jadwal_tes j JOIN tb_tahun_ajar t ON j.idtahunajar = t.id_tahun_ajar WHERE id_jadwal = ?";
+        //prepare statement
+        $ps = $this->koneksi->prepare($sql);
+        $ps->execute([$id]);
+        $rs = $ps->fetch();
+        return $rs;
+    }
+
     public function simpan($data){
         $sql = "INSERT INTO tb_jadwal_tes (tgl,kategori,kuota,info,idtahunajar)
                 VALUES (?,?,?,?,?)";
