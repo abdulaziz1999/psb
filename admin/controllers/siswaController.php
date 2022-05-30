@@ -11,6 +11,11 @@ require_once '../views/hal/host.php';
 @$tgl_lahir = $_POST['tgl_lahir'];
 @$foto = $_POST['foto'];
 @$alamat = $_POST['alamat'];
+
+@$tahun_ajar_id = $_POST['tahun_ajar_id'];
+@$jadwaltes_id = $_POST['jadwaltes_id'];
+@$jenjang = $_POST['jenjang'];
+@$asal_sekolah = $_POST['asal_sekolah'];
 $tombol = $_POST['proses'];
 //2.menyimpan data2 di atas sebuah array
 $data = [
@@ -23,11 +28,18 @@ $data = [
     $foto,
     $alamat
 ];
-//3.proses
 $obj = new Siswa();
+$idtes = $obj->idjadwaltes($jenjang);
+$data2  = [
+    'tahun_ajar_id' => $obj->idtahunajar(),
+    'jadwaltes_id'  => $idtes,
+    'jenjang'       => $jenjang,
+    'asal_sekolah'  => $asal_sekolah
+];
+
 switch ($tombol) {
     case 'simpan':
-        $obj->simpan($data);
+        $obj->simpan($data,$data2);
         header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_siswa');
     break;
     case 'ubah':
