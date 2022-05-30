@@ -3,6 +3,6 @@ session_destroy();
 unset($_SESSION['MEMBER']);
 ?>
 <script>
-window.location.replace("http://localhost/psb/admin");
+window.location.replace($base_url."/psb/admin");
 </script>
 <?php

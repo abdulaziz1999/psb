@@ -3,6 +3,13 @@ session_start();
 @$user = $_SESSION['MEMBER'];
 @$role = $user['role'];
 $base_url = "http://localhost/";
+if (!$user) {
+  echo '<script>alert("Anda tidak memiliki akses kesini");
+  window.setTimeout(function() {
+      window.location.href = "'.$base_url.'/psb/admin";
+  }, 10);
+  </script>';
+}
 
 ?>
   <?php require_once 'config/database.php'?>
