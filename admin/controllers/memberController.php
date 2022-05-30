@@ -17,8 +17,13 @@ $rs = $obj->cekLogin($data);
 if(!empty($rs)){
     //simpan session
     $_SESSION['MEMBER'] = $rs;
-    //landing page
-    header('Location:'.$base_url.'/psb/admin/dash.php');    
+    @$user = $_SESSION['MEMBER'];
+    @$role = $user['role'];
+    if($role == 'admin'){
+        header('Location:'.$base_url.'/psb/admin/dash.php'); 
+    }else{
+        header('Location:'.$base_url.'/psb/siswa/dash.php'); 
+    }
 }
 else{
     //landing page

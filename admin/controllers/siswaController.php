@@ -39,8 +39,12 @@ $data2  = [
 
 switch ($tombol) {
     case 'simpan':
-        $obj->simpan($data,$data2);
+        $obj->simpan($data);
         header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_siswa');
+    break;
+    case 'daftar':
+        $obj->simpan($data,$data2);
+        header('Location:'.$base_url.'/psb/admin');
     break;
     case 'ubah':
         $data[] = $_POST['idx'];//tangkap hidden field u/ ? ke-8

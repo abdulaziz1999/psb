@@ -64,7 +64,7 @@ class Siswa{
         $sql2 = "INSERT INTO tb_calon_siswa (tahun_ajar_id, jadwaltes_id, siswa_id, jenjang, asal_sekolah) VALUES ('".$arraySiswa['tahun_ajar_id']."','".$arraySiswa['jadwaltes_id']."','".$arraySiswa['siswa_id']."','".$arraySiswa['jenjang']."','".$arraySiswa['asal_sekolah']."')";
         //prepare statement
         $cek = $this->koneksi->prepare($sql2);
-        $cek->execute($data);
+        $cek->execute($data);        
     }
 
     public function ubah($data){

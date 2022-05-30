@@ -193,7 +193,7 @@
                                     <input type="text" class="form-control" name="foto" id="recipient-name" required>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" name="proses" value="simpan"
+                                    <button type="submit" name="proses" value="daftar"
                                         class="btn bg-gradient-dark w-100 my-4 mb-2">Daftar</button>
                                 </div>
                                 <p class="text-sm mt-3 mb-0">Already have an account? <a href="javascript:;"
