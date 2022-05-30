@@ -30,11 +30,19 @@ $data = [
 ];
 $obj = new Siswa();
 $idtes = $obj->idjadwaltes($jenjang);
+
 $data2  = [
     'tahun_ajar_id' => $obj->idtahunajar(),
     'jadwaltes_id'  => $idtes,
     'jenjang'       => $jenjang,
     'asal_sekolah'  => $asal_sekolah
+];
+
+$dataUser = [
+    'nama'      => $nama,
+    'username'  => $nisn,
+    'password'  => SHA1(MD5($no_hp)),
+    'role'      => 'siswa'
 ];
 
 switch ($tombol) {
@@ -43,7 +51,7 @@ switch ($tombol) {
         header('Location:'.$base_url.'/psb/admin/dash.php?hal=data_siswa');
     break;
     case 'daftar':
-        $obj->simpan($data,$data2);
+        $obj->simpan($data,$data2,$dataUser);
         header('Location:'.$base_url.'/psb/admin');
     break;
     case 'ubah':

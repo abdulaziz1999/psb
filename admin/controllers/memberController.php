@@ -22,7 +22,7 @@ if(!empty($rs)){
     if($role == 'admin'){
         header('Location:'.$base_url.'/psb/admin/dash.php'); 
     }else{
-        header('Location:'.$base_url.'/psb/siswa/dash.php'); 
+        header('Location:'.$base_url.'/psb/admin/dash.php'); 
     }
 }
 else{

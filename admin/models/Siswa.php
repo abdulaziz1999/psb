@@ -52,7 +52,7 @@ class Siswa{
         return $ta;
     }
 
-    public function simpan($data,$data2){
+    public function simpan($data,$data2,$dataUser){
         $sql = "INSERT INTO tb_data_siswa (nisn, nama, jk, no_hp, tmp_lahir, tgl_lahir, foto, alamat) VALUES (?,?,?,?,?,?,?,?)";
         //prepare statement
         $ps = $this->koneksi->prepare($sql);
@@ -64,7 +64,15 @@ class Siswa{
         $sql2 = "INSERT INTO tb_calon_siswa (tahun_ajar_id, jadwaltes_id, siswa_id, jenjang, asal_sekolah) VALUES ('".$arraySiswa['tahun_ajar_id']."','".$arraySiswa['jadwaltes_id']."','".$arraySiswa['siswa_id']."','".$arraySiswa['jenjang']."','".$arraySiswa['asal_sekolah']."')";
         //prepare statement
         $cek = $this->koneksi->prepare($sql2);
-        $cek->execute($data);        
+        $cek->execute($data);
+        $idcalonSiswa = $this->koneksi->lastInsertId();
+
+        $arrayUser = $dataUser;
+        $arrayUser['calon_siswa_id'] = $idcalonSiswa;
+        $sql3 = "INSERT INTO tb_user (username, password,nama, role, calon_siswa_id) VALUES ('".$arrayUser['username']."','".$arrayUser['password']."','".$arrayUser['nama']."','".$arrayUser['role']."','".$arrayUser['calon_siswa_id']."')";
+        //prepare statement
+        $act = $this->koneksi->prepare($sql3);
+        $act->execute($data);        
     }
 
     public function ubah($data){
