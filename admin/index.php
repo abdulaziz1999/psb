@@ -1,17 +1,4 @@
-<!--
-=========================================================
-* Argon Dashboard 2 - v2.0.2
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-* Copyright 2022 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
+<?php require_once 'views/hal/host.php';?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +8,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <title>
-    Argon Dashboard 2 by Creative Tim
+    Login PSB
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -42,8 +29,8 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg blur border-radius-lg top-0 z-index-3 shadow position-absolute mt-4 py-2 start-0 end-0 mx-4">
           <div class="container-fluid">
-            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="../pages/dashboard.html">
-              Argon Dashboard 2
+            <a class="navbar-brand font-weight-bolder ms-lg-0 ms-3 " href="#">
+              PSB Bakti Amal
             </a>
             <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon mt-2">
@@ -54,7 +41,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navigation">
               <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
+                <!-- <li class="nav-item">
                   <a class="nav-link d-flex align-items-center me-2 active" aria-current="page" href="../pages/dashboard.html">
                     <i class="fa fa-chart-pie opacity-6 text-dark me-1"></i>
                     Dashboard
@@ -77,11 +64,11 @@
                     <i class="fas fa-key opacity-6 text-dark me-1"></i>
                     Sign In
                   </a>
-                </li>
+                </li> -->
               </ul>
               <ul class="navbar-nav d-lg-block d-none">
                 <li class="nav-item">
-                  <a href="https://www.creative-tim.com/product/argon-dashboard" class="btn btn-sm mb-0 me-1 btn-primary">Free Download</a>
+                  <a href="<?= $base_url?>/psb/admin/daftar.php" class="btn btn-sm mb-0 me-1 btn-warning">Daftar</a>
                 </li>
               </ul>
             </div>
@@ -99,8 +86,8 @@
             <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column mx-lg-0 mx-auto">
               <div class="card card-plain">
                 <div class="card-header pb-0 text-start">
-                  <h4 class="font-weight-bolder">Sign In</h4>
-                  <p class="mb-0">Enter your email and password to sign in</p>
+                  <h4 class="font-weight-bolder">Login</h4>
+                  <p class="mb-0">Enter your email and password to log in</p>
                 </div>
                 <div class="card-body">
                   <form role="form" method="POST" action="controllers/memberController.php">
@@ -115,24 +102,24 @@
                       <label class="form-check-label" for="rememberMe">Remember me</label>
                     </div>
                     <div class="text-center">
-                      <button type="submit" class="btn btn-lg btn-primary btn-lg w-100 mt-4 mb-0">Sign in</button>
+                      <button type="submit" class="btn btn-lg btn-warning btn-lg w-100 mt-4 mb-0">Sign in</button>
                     </div>
                   </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
                     Don't have an account?
-                    <a href="javascript:;" class="text-primary text-gradient font-weight-bold">Sign up</a>
+                    <a href="<?= $base_url?>/psb/admin/daftar.php" class="text-warning text-gradient font-weight-bold">Daftar</a>
                   </p>
                 </div>
               </div>
             </div>
             <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 end-0 text-center justify-content-center flex-column">
-              <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
+              <div class="position-relative bg-gradient-warning h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center overflow-hidden" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/signin-ill.jpg');
           background-size: cover;">
-                <span class="mask bg-gradient-primary opacity-6"></span>
-                <h4 class="mt-5 text-white font-weight-bolder position-relative">"Attention is the new currency"</h4>
-                <p class="text-white position-relative">The more effortless the writing looks, the more effort the writer actually put into the process.</p>
+                <span class="mask bg-gradient-warning opacity-6"></span>
+                <h4 class="mt-5 text-white font-weight-bolder position-relative">"PSB Pesantren Bakti Amal"</h4>
+                <!-- <p class="text-white position-relative">The more effortless the writing looks, the more effort the writer actually put into the process.</p> -->
               </div>
             </div>
           </div>

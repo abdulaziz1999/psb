@@ -87,7 +87,7 @@
         </li> -->
         
       </ul>
-      <?php else:?>
+      <?php elseif($role == 'siswa'):?>
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link <?= $_REQUEST['hal'] == 'dashboard' ? 'active' : ''?>" href="dash.php?hal=dashboard">
@@ -98,11 +98,19 @@
           </a>
         </li>
         <li class="nav-item">
+          <a class="nav-link <?= $_REQUEST['hal'] == 'data_pembayaran' ? 'active' : ''?>" href="dash.php?hal=data_pembayaran">
+            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="ni ni-hat-3 text-warning text-sm opacity-10"></i>
+            </div>
+            <span class="nav-link-text ms-1">Pembayaran</span>
+          </a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link <?= $_REQUEST['hal'] == 'data_siswa' ? 'active' : ''?>" href="dash.php?hal=data_siswa">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-hat-3 text-warning text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Data Siswa</span>
+            <span class="nav-link-text ms-1">Biodata Diri</span>
           </a>
         </li>
         <li class="nav-item">
@@ -110,31 +118,7 @@
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-hat-3 text-warning text-sm opacity-10"></i>
             </div>
-            <span class="nav-link-text ms-1">Data Ortu</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link <?= $_REQUEST['hal'] == 'data_pembayaran' ? 'active' : ''?>" href="dash.php?hal=data_pembayaran">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-hat-3 text-warning text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Data Pembayaran</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link <?= $_REQUEST['hal'] == 'data_tahunajar' ? 'active' : ''?>" href="dash.php?hal=data_tahunajar">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-app text-info text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Data Tahunajar</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link <?= $_REQUEST['hal'] == 'profile' ? 'active' : ''?>" href="dash.php?hal=profile">
-            <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-single-02 text-success text-sm opacity-10"></i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
+            <span class="nav-link-text ms-1">Orang Tua</span>
           </a>
         </li>
         <li class="nav-item">
@@ -144,25 +128,21 @@
             </div>
             <span class="nav-link-text ms-1">Logut</span>
           </a>
-        </li>
-        <!-- <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
-        </li> -->
-        
+        </li>        
       </ul>
       <?php endif;?>
     </div>
     <div class="sidenav-footer mx-3 ">
       <div class="card card-plain shadow-none" id="sidenavCard">
-        <img class="w-50 mx-auto" src="./assets/img/illustrations/icon-documentation.svg" alt="sidebar_illustration">
+        <!-- <img class="w-50 mx-auto" src="./assets/img/illustrations/icon-documentation.svg" alt="sidebar_illustration"> -->
         <div class="card-body text-center p-3 w-100 pt-0">
           <div class="docs-info">
-            <h6 class="mb-0">Need help?</h6>
+            <!-- <h6 class="mb-0">Need help?</h6> -->
             <!-- <p class="text-xs font-weight-bold mb-0">Please check our docs</p> -->
           </div>
         </div>
       </div>
-      <a href="#" class="btn btn-dark btn-sm w-100 mb-3">IT Consulting</a>
-      <a href="#" class="btn btn-primary btn-sm mb-0 w-100" type="button">Create a Website</a>
+      <!-- <a href="#" class="btn btn-dark btn-sm w-100 mb-3">IT Consulting</a>
+      <a href="#" class="btn btn-primary btn-sm mb-0 w-100" type="button">Create a Website</a> -->
     </div>
   </aside>

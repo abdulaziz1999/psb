@@ -17,8 +17,8 @@
       }elseif($_REQUEST['hal'] == 'data_tahunajar'){
         $menu = 'Data Tahun Ajar';
       }elseif($_REQUEST['hal'] == ''){
-          $menu = 'Dashboard';
-      }elseif($_REQUEST['hal'] != 'dashboard' || 
+        $menu = 'Dashboard';
+    }elseif($_REQUEST['hal'] != 'dashboard' || 
               $_REQUEST['hal'] != 'profile' || 
               $_REQUEST['hal'] != 'data_siswa' || 
               $_REQUEST['hal'] != 'data_ortu' || 
